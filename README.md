@@ -10,7 +10,7 @@ Showcasing my projects, blogs, skills, a custom AI-powered chatbot, and contact 
 - **Animated Hero Section**: Modern intro with typing animation and download CV button.
 - **About Section**: Detailed bio, education, skills, and featured projects.
 - **Essential Tools**: Visual grid of all tech/tools used.
-- **Projects Gallery**: Dynamic, filterable project cards (data fetched from GitHub).
+- **Projects Gallery**: Dynamic, filterable project cards (data fetched from GitHub) with animated skeleton loading for a smooth experience.
 - **Blog Section**: Ready for technical blogs and learning stories.
 - **AI Chatbot (Robohan, powered by Gemini)**: Integrated chatbot UI for interactive conversations, built with custom logic and animation, leveraging Google's Gemini AI model.
 - **Contact Page**: Contact form, direct links, map, and social media.
@@ -25,10 +25,19 @@ Showcasing my projects, blogs, skills, a custom AI-powered chatbot, and contact 
 ## ✨ Animations & UI Effects
 
 - **Framer Motion**: Smooth entrance, hover, and tap animations across all major sections and buttons.
+- **Skeleton Loading**: While project data is loading, animated skeleton cards are shown for a polished, modern loading experience.
 - **Typing Animation**: Dynamic keyword typing in the hero section.
 - **Animated Navigation**: Navbar and buttons feature tap/hover effects.
 - **Chatbot UI**: Animated message bubbles and typing indicators for a real chat experience.
 - **Section Transitions**: Fade, slide, and scale effects for a polished, modern feel.
+
+---
+
+## 🦴 Skeleton Loading
+
+The Projects Gallery now features animated skeleton loaders while project data is being fetched. This ensures users see a smooth, visually appealing placeholder instead of blank space, improving perceived performance and user experience.
+
+Skeletons are styled to match the theme and use Framer Motion for subtle animation effects.
 
 ---
 

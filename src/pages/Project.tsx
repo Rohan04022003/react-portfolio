@@ -6,6 +6,7 @@ import { useProjectContext } from "../context/projectContext";
 import ProjectCard from "../components/ProjectCard";
 
 import { motion } from "framer-motion";
+import ProjectCardSkeleton from "../components/Skeleton/ProjectCardSkeleton";
 
 const filters = [
   { label: "All", value: "" },
@@ -19,7 +20,7 @@ const filters = [
 
 const Projects = () => {
   const { theme } = useAppSettings();
-  const { projects } = useProjectContext();
+  const { projects, loading } = useProjectContext();
 
   const [filterVal, setFilterVal] = useState("");
   const [filterProjects, setFilterProjects] = useState<Project[]>([]);
@@ -52,6 +53,22 @@ const Projects = () => {
     setFilterVal(val);
     setOpen(false);
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-[64vh] px-4 md:px-10 lg:px-20 py-10 flex justify-center">
+        <div className="projects lg:w-[65rem] w-full">
+          <div className="skeleton bg-800 w-52 h-6 rounded-md animate-pulse mb-3"></div>
+          <div className="skeleton bg-800 w-95 h-6 rounded-md animate-pulse"></div>
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {Array.from({ length: 3 }).map((_, index) => (
+              <ProjectCardSkeleton key={index} />
+            ))}
+          </div>
+        </div>
+      </div >
+    )
+  }
 
   return (
     <div className="min-h-[64vh] px-4 md:px-10 lg:px-20 py-10 flex justify-center">

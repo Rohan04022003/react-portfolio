@@ -12,7 +12,7 @@ const BlogDetailsPage = () => {
   const { theme, borderRadius } = useAppSettings();
   const navigate = useNavigate();
 
-  if (!blog) return <div className="text-100 p-4">Blog not found</div>;
+  if (!blog) return <div className="min-h-[88vh] flex items-center justify-center text-lg text-100">Blog not found</div>;
 
   return (
     <motion.section

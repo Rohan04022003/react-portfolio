@@ -10,13 +10,14 @@ import { useAppSettings } from '../context/AppSettingsContext';
 import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion"
 import BlogCard from '../components/BlogCard';
+import ProjectCardSkeleton from '../components/Skeleton/ProjectCardSkeleton';
 
 const Home = () => {
 
     const { theme, borderRadius } = useAppSettings();
 
-    const { projects } = useProjectContext();
-    const { blogs } = useBlogContext();
+    const { projects, loading: ProjectLoading } = useProjectContext();
+    const { blogs, loading: BlogLoading } = useBlogContext();
 
     const navigate = useNavigate();
 
@@ -57,35 +58,48 @@ const Home = () => {
                             onClick={() => navigate("/projects")} style={{ background: theme + 20, border: `1px solid ${theme + "50"}`, borderRadius: borderRadius + 'px' }} className='text-100 p-2 rounded-lg hover-80 cursor-pointer'><ArrowRight size={18} /></motion.button>
                     </motion.div>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
-                        {projects.slice(0, 3).map((project, index) => {
-                            return (
-                                <motion.div
-                                    key={index}
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, amount: 0.2 }}
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 120,
-                                        damping: 18,
-                                        delay: index * 0.15,
-                                        ease: [0.22, 1, 0.36, 1],
-                                    }}
-                                > <ProjectCard
-                                        slug={project.slug}
-                                        title={project.title}
-                                        description={project.description}
-                                        techStack={project.techStack}
-                                        tags={project.tags}
-                                        githubLink={project.githubLink}
-                                        liveDemo={project.liveDemo}
-                                        screenshots={project.screenshots}
-                                        isLatest={project.isLatest}
-                                    />
-                                </motion.div>
 
+                        {ProjectLoading ?
+
+                            (
+                                Array.from({ length: 3 }).map((_, index) => (
+                                    <ProjectCardSkeleton key={index} />
+                                ))
                             )
-                        })}
+                            :
+
+                            (
+                                projects.slice(0, 3).map((project, index) => {
+                                    return (
+                                        <motion.div
+                                            key={index}
+                                            initial={{ opacity: 0, y: 30 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true, amount: 0.2 }}
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 120,
+                                                damping: 18,
+                                                delay: index * 0.15,
+                                                ease: [0.22, 1, 0.36, 1],
+                                            }}
+                                        > <ProjectCard
+                                                slug={project.slug}
+                                                title={project.title}
+                                                description={project.description}
+                                                techStack={project.techStack}
+                                                tags={project.tags}
+                                                githubLink={project.githubLink}
+                                                liveDemo={project.liveDemo}
+                                                screenshots={project.screenshots}
+                                                isLatest={project.isLatest}
+                                            />
+                                        </motion.div>
+
+                                    )
+                                })
+                            )
+                        }
                     </div>
                 </div>
             </section>
@@ -103,32 +117,42 @@ const Home = () => {
                             onClick={() => navigate("/blog")} style={{ background: theme + 20, border: `1px solid ${theme + "50"}`, borderRadius: borderRadius + 'px' }} className='text-100 p-2 rounded-lg hover-80 cursor-pointer'><ArrowRight size={18} /></motion.button>
                     </motion.div>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
-                        {blogs.slice(0, 3).map((blog, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 120,
-                                    damping: 18,
-                                    delay: index * 0.15,
-                                    ease: [0.22, 1, 0.36, 1],
-                                }}
-                            ><BlogCard
-                                    key={blog.id}
-                                    title={blog.title}
-                                    slug={blog.slug}
-                                    description={blog.description}
-                                    coverImage={blog.coverImage}
-                                    date={blog.date}
-                                    readTime={blog.readTime}
-                                    tags={blog.tags}
-                                />
-                            </motion.div>
 
-                        ))
+                        {BlogLoading ?
+
+                            (
+                                Array.from({ length: 3 }).map((_, index) => (
+                                    <ProjectCardSkeleton key={index} />
+                                ))
+                            )
+                            :
+
+                            blogs.slice(0, 3).map((blog, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.2 }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 120,
+                                        damping: 18,
+                                        delay: index * 0.15,
+                                        ease: [0.22, 1, 0.36, 1],
+                                    }}
+                                ><BlogCard
+                                        key={blog.id}
+                                        title={blog.title}
+                                        slug={blog.slug}
+                                        description={blog.description}
+                                        coverImage={blog.coverImage}
+                                        date={blog.date}
+                                        readTime={blog.readTime}
+                                        tags={blog.tags}
+                                    />
+                                </motion.div>
+
+                            ))
                         }
                     </div>
                 </div>

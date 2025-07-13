@@ -10,14 +10,14 @@ const ProjectDetailsPage = () => {
   const navigate = useNavigate();
   const { slug } = useParams();
   const { theme, borderRadius } = useAppSettings();
-  const { projects, loading } = useProjectContext();
+  const { projects } = useProjectContext();
 
   const project = projects.find((p) => p.slug === slug);
 
-  if (loading || !project) {
+  if (!project) {
     return (
-      <div className="min-h-[88vh] flex items-center justify-center text-lg text-red-400">
-        Loading...
+      <div className="min-h-[88vh] flex items-center justify-center text-lg text-100">
+        Project Not Found.
       </div>
     );
   }
