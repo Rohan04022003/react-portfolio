@@ -15,13 +15,13 @@ const Header = () => {
 
   //button click animation
 
-const buttonTap = {
-  initial: { scale: 1 },
-  whileTap: {
-    scale: [0.95, 1.05, 1],
-    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
-  },
-};
+  const buttonTap = {
+    initial: { scale: 1 },
+    whileTap: {
+      scale: [0.95, 1.05, 1],
+      transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] as const },
+    },
+  };
 
 
   return (
@@ -44,7 +44,7 @@ const buttonTap = {
       <motion.div
         {...buttonTap}
         onClick={() => navigate("/")} className={`logo bg-blur-lg cursor-pointer`} style={{
-          background: `linear-gradient(to right, ${theme}, ${theme + "30"})`,
+          background: `linear-gradient(135deg, ${theme + "10"}, ${theme})`,
           borderRadius: borderRadius + 'px'
         }}>
         <img src={logo} alt="portfolio-logo" className={`w-8 h-8`} />
@@ -63,7 +63,7 @@ const buttonTap = {
         {/* yeh section hamburger ke liye hai for mobile device  */}
         <motion.button
           {...buttonTap}
-          style={{ borderRadius: borderRadius + 'px' }} onClick={() => setIsOpen((prev) => !prev)} className="text-100 border border-neutral-100 bg-neutral-900 p-1 rounded-lg flex sm:hidden hover-80 cursor-pointer">{isOpen ? <X size={27} /> : <Menu size={27} />}</motion.button>
+          style={{ borderRadius: borderRadius + 'px', background: `linear-gradient(135deg, ${theme + "20"}, ${theme + "30"})`, borderColor: theme }} onClick={() => setIsOpen((prev) => !prev)} className="text-100 bg-blur-lg border bg-neutral-900 p-1 rounded-lg flex sm:hidden hover-80 cursor-pointer">{isOpen ? <X size={27} /> : <Menu size={27} />}</motion.button>
       </div>
     </motion.header>
   )

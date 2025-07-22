@@ -105,10 +105,13 @@ const ChatBotUI = () => {
                         initial={{ opacity: 0, x: -40 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -40 }}
-                        className="fixed bottom-[1.9rem] right-23 z-10 text-100 text-sm px-4 py-2 rounded-lg shadow-lg bg-900"
-                        style={{ border: `1px solid ${theme + "80"}` }}
+                        className="fixed bottom-[1.9rem] right-23 z-10 text-100 text-sm px-4 py-2 rounded-lg bg-blur-lg"
+                        style={{
+                            border: `1px solid ${theme + "80"}`,
+                            background: `linear-gradient(135deg, ${theme + "20"}, ${theme + "30"})`
+                        }}
                     >
-                        Meet Robohan 🤖
+                        🤖 Meet Robohan
                     </motion.div>
                 )}
 

@@ -54,9 +54,9 @@ const AppSettings = () => {
         <>
             <motion.button
                 {...buttonTap}
-                style={{ background: theme, borderRadius: borderRadius + "px" }}
+                style={{ borderRadius: borderRadius + 'px', background: `linear-gradient(135deg, ${theme + "20"}, ${theme + "30"})`, borderColor: theme }}
                 onClick={() => setIsOpen(true)}
-                className="btn-default p-[.4rem] text-100 hover-80 cursor-pointer"
+                className="btn-default p-[.4rem] text-100 hover-80 cursor-pointer bg-blur-lg border"
             >
                 <Palette />
             </motion.button>

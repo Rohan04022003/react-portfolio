@@ -184,7 +184,7 @@ const Contact = () => {
           <motion.button
             type="submit"
             {...buttonTap}
-            className="px-4 py-2 text-100 font-medium hover:opacity-80 transition cursor-pointer flex-center gap-2"
+            className="px-4 py-2 text-100 font-medium transition cursor-pointer flex-center gap-2 hover-80"
             style={{
               background: theme,
               borderRadius: borderRadius + "px",

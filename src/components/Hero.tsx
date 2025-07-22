@@ -121,7 +121,10 @@ const Hero = () => {
         }}
         className="relative rounded-xl overflow-hidden z-10 lg:flex hidden"
       >
-        <img
+        <motion.img
+          initial={{ scale: 1 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ ease: [0.25, 0.1, 0.25, 1], duration: 0.4 }}
           src={myImage}
           alt="rohan-profile"
           className="w-[320px] shadow-md z-10"
