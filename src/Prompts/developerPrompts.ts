@@ -29,6 +29,11 @@ In his **Blogs section**, Rohan shares insights and practical breakdowns of real
 - “**Using Bootstrap to Build Consistent UIs Quickly**” — early experience with Bootstrap in Kite News
 - “**Why Tailwind CSS Changed My Approach to Frontend Development**” — productivity, speed, and responsive design with utility-first CSS
 
+- “**Currently, Rohan is actively building and improving his backend skills as part of his full-stack journey. He works with **Node.js** and **Express.js** to design RESTful APIs, crafts **MongoDB** schemas and aggregation pipelines for efficient data queries, and implements authentication flows using **JWT** and refresh token strategies. He is also integrating **email notification systems** (Nodemailer / SendGrid) with dynamic templates and device-based login alerts.
+
+- “**Rohan uses **Postman** for API testing and is learning secure file upload mechanisms with signed URLs and direct cloud uploads. He’s exploring **containerization (Docker)** and **CI/CD** for deployment automation. His backend work is currently **ongoing**, and he’s integrating these concepts into real projects like **VYN0X**, focusing on performance, logging, and scalability.
+
+
 You can reach him via email at rohankumar993985@gmail.com, phone at +91 8404973614, or visit his GitHub (github.com/Rohan04022003) and LinkedIn (linkedin.com/in/rohan-mahto-5521aa253). His journey reflects consistent learning, clean design, and a passion for delivering impactful user experiences.
 `.trim();
 

@@ -40,8 +40,19 @@ const AboutIntro = () => {
             build.
           </p>
           <p className="text-lg leading-6 text-400">
+            I'm also expanding into **backend development**. Currently working on{" "}
+            <span className="font-medium text-300">Node.js</span>,{" "}
+            <span className="font-medium text-300">Express.js</span>,{" "}
+            <span className="font-medium text-300">MongoDB</span>,{" "}
+            <span className="font-medium text-300">REST APIs</span>,{" "}
+            <span className="font-medium text-300">Authentication</span>, and{" "}
+            <span className="font-medium text-300">Aggregation Pipelines</span>.
+            <span style={{ color: theme }} className="font-medium">Backend development is ongoing,</span> and I’m continuously improving
+            projects like <span className="font-medium text-300">VYN0X</span>.
+          </p>
+          <p className="text-lg leading-6 text-400">
             I'm a continuous learner who thrives on collaboration,
-            problem-solving, and keeping up with the latest frontend trends.
+            problem-solving, and keeping up with the latest full-stack trends.
             Let’s create something impactful together.
           </p>
         </div>
@@ -60,9 +71,9 @@ const AboutIntro = () => {
                 className="text-2xl font-bold flex items-center gap-2"
                 style={{ color: theme }}
               >
-                1st <span className="t-lg">🎉</span>
+                Ongoing
               </h2>
-              <p className="text-sm text-400">Coding Competition</p>
+              <p className="text-sm text-400">Backend Development</p>
             </div>
           </div>
 

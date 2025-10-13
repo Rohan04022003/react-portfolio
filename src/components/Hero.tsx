@@ -116,15 +116,9 @@ const Hero = () => {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         viewport={{ once: true }}
-        style={{
-          background: `linear-gradient(to top, ${theme}cc, ${theme}10)`,
-        }}
         className="relative rounded-xl overflow-hidden z-10 lg:flex hidden"
       >
         <motion.img
-          initial={{ scale: 1 }}
-          whileHover={{ scale: 1.05 }}
-          transition={{ ease: [0.25, 0.1, 0.25, 1], duration: 0.4 }}
           src={myImage}
           alt="rohan-profile"
           className="w-[320px] shadow-md z-10"
