@@ -40,10 +40,11 @@ const AboutIntro = () => {
             build.
           </p>
           <p className="text-lg leading-6 text-400">
-            I'm also expanding into **backend development**. Currently working on{" "}
+            I'm also expanding into <span style={{ color: theme }} className="text-300">backend development.</span> Currently working on{" "}
             <span className="font-medium text-300">Node.js</span>,{" "}
             <span className="font-medium text-300">Express.js</span>,{" "}
             <span className="font-medium text-300">MongoDB</span>,{" "}
+            <span className="font-medium text-300">Mongoose</span>,{" "}
             <span className="font-medium text-300">REST APIs</span>,{" "}
             <span className="font-medium text-300">Authentication</span>, and{" "}
             <span className="font-medium text-300">Aggregation Pipelines</span>.

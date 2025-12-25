@@ -35,7 +35,7 @@ const About = () => {
             Hey, I'm Rohan Kumar Mahto — a frontend developer from Delhi, originally from Bihar. I love building clean, responsive, and scalable web applications using tools like HTML, CSS, JavaScript, TypeScript, React, Tailwind CSS, Bootstrap, and shadcn/ui. Along the way, I've also worked with things like Framer Motion, API integration, Context API, Git, and GitHub. After completing my 12th in 2020 with 76.20%, I did an ADCA to strengthen my computer basics. Then from 2021 to 2024, I completed my B.C.A. from Sirifort Institute of Management Studies (GGSIPU), where I scored a CGPA of 8.85. Since then, I've been focused on sharpening my frontend skills, exploring backend, and diving into AI.
           </p>
           <p className="text-400">
-            Some of my key projects include BotForge AI (a multi-model AI chatbot platform), Fashion Market (an e-commerce frontend), Pixisphere (a photographer discovery platform), and more. I also enjoy writing about what I learn, and once even secured 1st place in a C++ coding competition. Right now, I’m actively looking for job opportunities and building full-stack capabilities alongside AI-based tools. You can reach out to me at <a className="underline hover-80" style={{ color: theme }} href="mailto:rohankumar993985@gmail.com">rohankumar993985@gmail.com</a>, or check out my work on <a href="https://github.com/Rohan04022003" target="_blank" rel="noopener noreferrer" className="underline hover-80" style={{ color: theme }}>GitHub</a> and <a href="https://linkedin.com/in/rohan-mahto-5521aa253" target="_blank" rel="noopener noreferrer" className="underline hover-80" style={{ color: theme }}>LinkedIn</a>.
+            Some of my key projects include BotForge AI (a multi-model AI chatbot platform), Fashion Market (an e-commerce frontend), Pixisphere (a photographer discovery platform), and more. I also enjoy writing about what I learn, and once even secured Appreciable place in a C++ coding intra college competition. Right now, I’m actively looking for job opportunities and building full-stack capabilities alongside AI-based tools. You can reach out to me at <a className="underline hover-80" style={{ color: theme }} href="mailto:rohankumar993985@gmail.com">rohankumar993985@gmail.com</a>, or check out my work on <a href="https://github.com/Rohan04022003" target="_blank" rel="noopener noreferrer" className="underline hover-80" style={{ color: theme }}>GitHub</a> and <a href="https://linkedin.com/in/rohan-mahto-5521aa253" target="_blank" rel="noopener noreferrer" className="underline hover-80" style={{ color: theme }}>LinkedIn</a>.
           </p>
         </motion.div>
 
@@ -62,6 +62,14 @@ const About = () => {
           <ul className="text-neutral-300 list-disc list-inside space-y-1">
             <li><strong className="text-100">B.C.A.</strong> – Sirifort Institute of Management Studies (GGSIPU), 2021–2024 | CGPA: 8.85</li>
             <li><strong className="text-100">XII</strong> – Bihar School Examination Board (BSEB), 2020 | 76.20%</li>
+          </ul>
+        </motion.div>
+
+        <motion.div custom={3} variants={fadeUp}>
+          <h2 className="text-2xl font-semibold mb-2">Certifications</h2>
+          <ul className="text-neutral-300 list-disc list-inside space-y-1">
+            <li><strong className="text-100">Web Developer BootCamp</strong> – Udemy, 2024-2025</li>
+            <li><strong className="text-100">Advanced Diploma in Computer Application</strong> – Wizard Tech, 2020-2021 | 84%</li>
           </ul>
         </motion.div>
 

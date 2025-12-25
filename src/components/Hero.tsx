@@ -8,7 +8,7 @@ const parentVariant = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.35, // ⬅️ slower line-by-line reveal
+      staggerChildren: 0.35, // slow line-by-line reveal hoga.
     },
   },
 };
@@ -19,7 +19,7 @@ const childVariant = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 1.2, // ⬅️ slower fade-in
+      duration: 1.2, // slow fade-in hoga.
       ease: [0.25, 0.1, 0.25, 1] as const,
     },
   },
@@ -34,7 +34,7 @@ const buttonTap = {
 };
 
 const Hero = () => {
-  const { theme, borderRadius } = useAppSettings();
+  const { theme, borderRadius } = useAppSettings(); // yaha se hum basically styling ko use kr rhe hai.
 
   return (
     <motion.div
@@ -45,7 +45,7 @@ const Hero = () => {
       variants={parentVariant}
     >
       {/* Left Section */}
-      <motion.div className="max-w-xl space-y-6" variants={childVariant}>
+      <motion.div className="max-w-xl space-y-4" variants={childVariant}>
         {/* Availability */}
         <motion.div
           className="flex items-center gap-2"
@@ -71,17 +71,17 @@ const Hero = () => {
           </motion.span>
         </motion.div>
 
-        {/* Typing */}
+
         <motion.p className="text-lg" variants={childVariant}>
-          I Build <TypingKeywords />
+          I Build <TypingKeywords /> {/* yeh typing keywords ke liye use huaa hai. */}
         </motion.p>
 
-        {/* Subtext */}
         <motion.p className="text-neutral-400 mt-2" variants={childVariant}>
-          Frontend Developer specializing in React, TypeScript & Tailwind CSS.
+          Frontend-first developer growing into full-stack by building real-world, production-ready projects.
         </motion.p>
 
-        {/* Buttons */}
+
+        {/* resume and project buttons */}
         <motion.div className="flex gap-4 mt-5" variants={childVariant}>
           <motion.a
             {...buttonTap}
@@ -91,7 +91,7 @@ const Hero = () => {
             }}
             href={"/rohanResume.pdf"}
             download
-            className="text-100 px-5 py-2 shadow transition hover-80 flex-center gap-2"
+            className="text-100 lg:text-base text-sm px-5 py-2 shadow transition hover-80 flex-center gap-2"
           >
             Download CV <ArrowDown size={18} className="animate-bounce" />
           </motion.a>
@@ -103,7 +103,7 @@ const Hero = () => {
               borderRadius: borderRadius + "px",
             }}
             href="#projects"
-            className="text-100 px-5 py-2 transition hover-80"
+            className="text-100 lg:text-base text-sm px-5 py-2 transition hover-80"
           >
             View Projects
           </motion.a>
