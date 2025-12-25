@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Send,
 } from "lucide-react";
@@ -6,15 +7,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useWeb3Forms from "@web3forms/react";
 import { motion, spring } from "framer-motion";
-import { useLocation } from "react-router-dom";
-import { socialMedia } from "../utils/socialMediaLinks";
 
 const Contact = () => {
   const { theme, borderRadius } = useAppSettings(); // for theme use.
-  const [hovered, setHovered] = useState(""); // yeh hover animation ke liye hai.
   const [result, setResult] = useState(""); // message send huaa ya nahi confirmation message.
   const [isSuccess, setIsSuccess] = useState(false); // message success huaa ya fail.
-  const location = useLocation(); // for getting location.
   const [isSending, setIsSending] = useState(false); // for sending animation
 
   const { register, handleSubmit, reset } = useForm(); // react hook form se liya hai.
@@ -38,6 +35,11 @@ const Contact = () => {
       setResult("❌ Something went wrong. Please try again.");
     },
   });
+
+  const handleFormSubmit = async (data: any) => {
+    setIsSending(true);
+    await onSubmit(data); // call onSubmit function.
+  };
 
   const parentVariant = {
     hidden: {},
@@ -89,38 +91,11 @@ const Contact = () => {
             I'm open to internships, freelance work, or cool projects. Message
             me, I'd love to connect!
           </p>
-
-          {/* Social Icons */}
-          <motion.div
-            className={`gap-4 mt-6 ${location.pathname === "/contact" ? "hidden" : "flex"}`}
-            variants={childVariant}
-          >
-            {socialMedia.map(({ label, href, Icon }) => (
-              <motion.a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={() => setHovered(label)}
-                onMouseLeave={() => setHovered("")}
-                className="bg-800 p-2 transition border border-transparent"
-                style={{
-                  color: hovered === label ? theme : "",
-                  borderColor: hovered === label ? theme : "",
-                  borderRadius: borderRadius + "px",
-                }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Icon className="w-5 h-5" />
-              </motion.a>
-            ))}
-          </motion.div>
         </motion.div>
 
         {/* Right: Form */}
         <motion.form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(handleFormSubmit)}
           className="flex-1 space-y-4"
           variants={childVariant}
         >
@@ -159,7 +134,6 @@ const Contact = () => {
           <motion.button
             type="submit"
             {...buttonTap}
-            onClick={() => setIsSending(true)}
             className="px-4 py-2 text-100 font-medium transition cursor-pointer flex-center gap-2 hover-80"
             style={{
               background: theme,
