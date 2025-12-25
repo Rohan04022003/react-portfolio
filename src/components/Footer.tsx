@@ -1,33 +1,11 @@
-import { Github, Linkedin, Twitter, Instagram, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 import { useAppSettings } from "../context/AppSettingsContext";
 import { useState } from "react";
+import { socialMedia } from "../utils/socialMediaLinks";
 
 const Footer = () => {
     const { theme, borderRadius } = useAppSettings();
     const [hovered, setHovered] = useState("");
-
-    const socialMedia = [
-        {
-            label: "github",
-            href: "https://github.com/Rohan04022003",
-            Icon: Github,
-        },
-        {
-            label: "linkedin",
-            href: "https://www.linkedin.com/in/rohan-mahto-5521aa253/",
-            Icon: Linkedin,
-        },
-        {
-            label: "twitter",
-            href: "https://x.com/@Rohankumar0402",
-            Icon: Twitter,
-        },
-        {
-            label: "instagram",
-            href: "https://www.instagram.com/rohankumarmahto01/",
-            Icon: Instagram,
-        },
-    ];
 
     return (
         <footer className="bg-900 text-100 px-4 py-6 border-t border-white/10 mt-20">

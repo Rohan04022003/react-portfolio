@@ -1,8 +1,4 @@
 import {
-  Github,
-  Linkedin,
-  Twitter,
-  Instagram,
   Send,
 } from "lucide-react";
 import { useAppSettings } from "../context/AppSettingsContext";
@@ -11,20 +7,19 @@ import { useForm } from "react-hook-form";
 import useWeb3Forms from "@web3forms/react";
 import { motion, spring } from "framer-motion";
 import { useLocation } from "react-router-dom";
+import { socialMedia } from "../utils/socialMediaLinks";
 
 const Contact = () => {
-  const { theme, borderRadius } = useAppSettings();
-  const [hovered, setHovered] = useState("");
-  const [result, setResult] = useState("");
-  const [isSuccess, setIsSuccess] = useState(false);
-  const location = useLocation();
+  const { theme, borderRadius } = useAppSettings(); // for theme use.
+  const [hovered, setHovered] = useState(""); // yeh hover animation ke liye hai.
+  const [result, setResult] = useState(""); // message send huaa ya nahi confirmation message.
+  const [isSuccess, setIsSuccess] = useState(false); // message success huaa ya fail.
+  const location = useLocation(); // for getting location.
 
-  const { register, handleSubmit, reset } = useForm();
-
-  const accessKey = "f4347894-38ea-43e5-b23f-31bc68479b64";
+  const { register, handleSubmit, reset } = useForm(); // react hook form se liya hai.
 
   const { submit: onSubmit } = useWeb3Forms({
-    access_key: accessKey,
+    access_key: import.meta.env.VITE_WEB3FORM_ACCESS_KEY,
     settings: {
       from_name: "Portfolio Contact Form",
       subject: "New message from portfolio",
@@ -70,29 +65,6 @@ const Contact = () => {
       transition: { type: spring, stiffness: 300, damping: 20 },
     },
   };
-
-  const socialMedia = [
-    {
-      label: "github",
-      href: "https://github.com/Rohan04022003",
-      Icon: Github,
-    },
-    {
-      label: "linkedin",
-      href: "https://www.linkedin.com/in/rohan-mahto-5521aa253/",
-      Icon: Linkedin,
-    },
-    {
-      label: "twitter",
-      href: "https://x.com/@Rohankumar0402",
-      Icon: Twitter,
-    },
-    {
-      label: "instagram",
-      href: "https://www.instagram.com/rohankumarmahto01/",
-      Icon: Instagram,
-    },
-  ];
 
   return (
     <motion.section

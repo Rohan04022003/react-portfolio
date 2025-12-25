@@ -3,7 +3,7 @@ import { useAppSettings } from "../context/AppSettingsContext";
 
 export const TypingDots = () => {
 
-    const {theme} = useAppSettings();
+    const {theme} = useAppSettings(); // theme setting use kiya hai.
 
   return (
     <div className="flex gap-1 items-center h-5">

@@ -9,7 +9,7 @@ const AppSettings = () => {
     const { theme, setTheme, font, setFont, borderRadius, setBorderRadius, resetAll } = useAppSettings();
     const [isOpen, setIsOpen] = useState(false);
 
-    const buttonTap = {
+    const buttonTap = { // jb hum button ko tap karenge toh yeh animation hoga.
         whileTap: {
             scale: 0.95,
             transition: { type: spring, stiffness: 300, damping: 20 },
@@ -61,7 +61,7 @@ const AppSettings = () => {
                 <Palette />
             </motion.button>
 
-            <AnimatePresence>
+            <AnimatePresence> // DOM me add ho ya remove ho animation tb bhi chalega.
                 {isOpen && (
                     <motion.div
                         key={"overlay"}
@@ -69,7 +69,7 @@ const AppSettings = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setIsOpen(false)}
-                        className="fixed top-0 left-0 h-screen w-screen bg-black/50 backdrop-blur-sm z-5-10 overflow-hidden"
+                        className="fixed top-0 left-0 h-screen w-screen bg-black/50 backdrop-blur-[1px] z-5-10 overflow-hidden"
                     />
                 )}
                 {isOpen && (

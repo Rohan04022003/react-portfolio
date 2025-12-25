@@ -1,16 +1,8 @@
-import { createContext, useContext, useEffect, useState, type Dispatch, type SetStateAction } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useEffect, useState } from "react";
 import { themeColors } from "../theme/colors";
 import { fontFamilies } from "../theme/fonts";
-
-type AppSettingsContextType = {
-    theme: string;
-    setTheme: Dispatch<SetStateAction<string>>;
-    font: string;
-    setFont: Dispatch<SetStateAction<string>>;
-    borderRadius: number;
-    setBorderRadius: Dispatch<SetStateAction<number>>;
-    resetAll: () => void;
-};
+import type { AppSettingsContextType } from "../types/types";
 
 const AppSettingsContext = createContext<AppSettingsContextType | undefined>(undefined);
 
@@ -19,7 +11,7 @@ export const AppSettingsProvider = ({ children }: { children: React.ReactNode })
     const [font, setFont] = useState(fontFamilies.inter);
     const [borderRadius, setBorderRadius] = useState(7);
 
-    // Load settings from localStorage once on mount
+    // Load settings from localStorage jb ek bar mout ho.
     useEffect(() => {
         const saved = localStorage.getItem("settings");
         if (saved) {
@@ -34,7 +26,7 @@ export const AppSettingsProvider = ({ children }: { children: React.ReactNode })
         }
     }, []);
 
-    // Save settings to localStorage whenever any of them changes
+    // save settings to local storage agar koi bhi settings change ho.
     useEffect(() => {
         const newSettings = {
             themeColour: theme,
@@ -44,7 +36,7 @@ export const AppSettingsProvider = ({ children }: { children: React.ReactNode })
         localStorage.setItem("settings", JSON.stringify(newSettings));
     }, [theme, font, borderRadius]);
 
-    const resetAll = () => {
+    const resetAll = () => { // jb user reset button pe click kre toh settings reset ho jaye.
         setTheme(themeColors.lemonLime)
         setFont(fontFamilies.inter)
         setBorderRadius(7)
@@ -57,7 +49,6 @@ export const AppSettingsProvider = ({ children }: { children: React.ReactNode })
     );
 };
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useAppSettings = () => {
     const context = useContext(AppSettingsContext);
     if (!context) throw new Error("useAppSettings must be used within AppSettingsProvider");

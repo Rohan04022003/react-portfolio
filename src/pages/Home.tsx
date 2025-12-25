@@ -16,8 +16,8 @@ const Home = () => {
 
     const { theme, borderRadius } = useAppSettings();
 
-    const { projects, loading: ProjectLoading } = useProjectContext();
-    const { blogs, loading: BlogLoading } = useBlogContext();
+    const { projects, loading: ProjectLoading } = useProjectContext(); // yaha pe projects ko context se le rhe hai.
+    const { blogs, loading: BlogLoading } = useBlogContext(); // yaha pe blogs ko context se le rhe hai.
 
     const navigate = useNavigate();
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from "react";
 import type { Blog, BlogContextType } from "../types/types";
 
@@ -8,7 +9,6 @@ const BlogContext = createContext<BlogContextType>({
   loading: true,
 });
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useBlogContext = () => useContext(BlogContext);
 
 export const BlogProvider = ({ children }: { children: React.ReactNode }) => {
@@ -16,7 +16,7 @@ export const BlogProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://raw.githubusercontent.com/Rohan04022003/my-project-data-repo/main/data/blogs.json")
+    fetch("https://raw.githubusercontent.com/Rohan04022003/my-project-data-repo/main/data/blogs.json") // blogs ko github repo se get kiya hai.
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data);

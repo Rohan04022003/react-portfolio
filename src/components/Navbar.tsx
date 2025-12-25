@@ -1,18 +1,12 @@
 import { FolderGit2, Home, Mail, PenLine, User } from "lucide-react";
-import type { ReactElement } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAppSettings } from "../context/AppSettingsContext";
 import { motion, type Variants, type Transition, } from "framer-motion";
+import type { NavLinkProps } from "../types/types";
 
 const Navbar = () => {
     const location = useLocation();
     const { theme, borderRadius } = useAppSettings();
-
-    type NavLinkProps = {
-        label: string;
-        path: string;
-        icon: ReactElement;
-    };
 
     const navLinks: NavLinkProps[] = [
         { label: "Home", path: "/", icon: <Home size={18} /> },

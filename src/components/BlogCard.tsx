@@ -3,16 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppSettings } from "../context/AppSettingsContext";
 import { useState } from "react";
 import { motion } from "framer-motion";
-
-type BlogCardProps = {
-  slug: string;
-  title: string;
-  description: string;
-  coverImage: string;
-  date: string;
-  readTime: string;
-  tags: string[];
-};
+import type { BlogCardProps } from "../types/types";
 
 const BlogCard = ({
   slug,
@@ -24,8 +15,8 @@ const BlogCard = ({
   tags,
 }: BlogCardProps) => {
   const navigate = useNavigate();
-  const { theme, borderRadius } = useAppSettings();
-  const [hovered, setHovered] = useState(false);
+  const { theme, borderRadius } = useAppSettings(); // yeh theme settings use krne ke liye.
+  const [hovered, setHovered] = useState(false); // yeh box shadow ke liye use huaa hai jb hover hoga.
 
   return (
     <motion.div

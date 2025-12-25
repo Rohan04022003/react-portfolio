@@ -9,8 +9,8 @@ import { motion } from "framer-motion"
 
 const Header = () => {
 
-  const { theme, borderRadius } = useAppSettings();
-  const navigate = useNavigate();
+  const { theme, borderRadius } = useAppSettings(); // theme settings usage ke liye.
+  const navigate = useNavigate(); // navigation ke liye.
   const [isOpen, setIsOpen] = useState(false);
 
   //button click animation

@@ -26,7 +26,7 @@ const itemVariant = {
 };
 
 const ToolsSection = () => {
-  const { theme } = useAppSettings();
+  const { theme } = useAppSettings(); // theme settings usage ke liye.
 
   return (
     <section className="text-100 lg:w-[65rem] w-full">

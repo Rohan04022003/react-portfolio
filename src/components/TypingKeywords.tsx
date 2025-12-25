@@ -2,7 +2,7 @@ import { TypeAnimation } from "react-type-animation";
 import { useAppSettings } from "../context/AppSettingsContext";
 
 const TypingKeywords = () => {
-  const { theme } = useAppSettings();
+  const { theme } = useAppSettings(); // theme settings use kiye hai.
 
   return (
     <TypeAnimation

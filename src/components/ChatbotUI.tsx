@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useAppSettings } from "../context/AppSettingsContext";
 import { useState, useEffect, useRef } from "react";
 import { Send, Bot, X } from "lucide-react";
@@ -7,14 +8,14 @@ import { formatMarkdownMessage } from "../utils/formatBotMessage";
 import { TypingDots } from "./TypingDots";
 
 const ChatBotUI = () => {
-    const { theme } = useAppSettings();
-    const [messages, setMessages] = useState<{ text: string; from: "user" | "bot" }[]>([]);
-    const [input, setInput] = useState("");
-    const [loading, setLoading] = useState(false);
-    const [isOpen, setIsOpen] = useState(false);
-    const [hasUserSentMessage, setHasUserSentMessage] = useState(false);
-    const [showIntro, setShowIntro] = useState(true);
-    const messagesEndRef = useRef<HTMLDivElement>(null);
+    const { theme } = useAppSettings(); // theme settings use krne ke liye.
+    const [messages, setMessages] = useState<{ text: string; from: "user" | "bot" }[]>([]); // messages jo user bot se baat krega.
+    const [input, setInput] = useState(""); // input set krne ke liye.
+    const [loading, setLoading] = useState(false); // for loading animation ke liye.
+    const [isOpen, setIsOpen] = useState(false); // yeh check krega ki bot box open hai ya nahi.
+    const [hasUserSentMessage, setHasUserSentMessage] = useState(false); // yeh check krega ki user ne message sent kiya ya nahi.
+    const [showIntro, setShowIntro] = useState(true); // iske help se hum show kr rhe h meet robohan on front page initial load.
+    const messagesEndRef = useRef<HTMLDivElement>(null); // yeh message animation ke liye hai.
 
     const botName = "Robohan";
     const initialBotMessage = `Hi, I'm ${botName} 👋. I can guide you through everything about Rohan — his projects, skills, and journey.`;
@@ -57,7 +58,7 @@ const ChatBotUI = () => {
     // yeh line scroll animation ke liye hai 
 
     useEffect(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }); // iske help se hum message send kr rhe hai toh animated way me show ho raha hai.
     }, [messages]);
 
     //yaha pe actual messages set ho rhe hai
@@ -71,7 +72,7 @@ const ChatBotUI = () => {
         setHasUserSentMessage(true);
 
         try {
-            const botResponse = await getGeminiResponse(userText); // yaha pe await ka use iss liye kiya hai kyuki yeh function ek promse return krta hai.
+            const botResponse = await getGeminiResponse(userText); // yaha pe await ka use iss liye kiya hai kyuki yeh function ek promise return krta hai.
             setMessages((prev) => [...prev, { text: botResponse ?? "", from: "bot" }]);
         } catch (error) {
             console.error("Error generating Gemini response:", error);
@@ -241,7 +242,7 @@ const ChatBotUI = () => {
                             <motion.form
                                 onSubmit={(e) => {
                                     e.preventDefault();
-                                    sendMessage();
+                                    sendMessage(); // yaha se hum message ai ke pass send kr rhe hai.
                                 }}
                                 className="flex items-center px-4 py-3 gap-3 border-t bg-800"
                                 style={{ borderTopColor: `${theme}30` }}

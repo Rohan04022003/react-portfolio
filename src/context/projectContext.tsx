@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useEffect, useState } from "react";
 import type { Project, ProjectContextType } from "../types/types";
 
@@ -8,7 +9,6 @@ const ProjectContext = createContext<ProjectContextType>({
   loading: true,
 });
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const useProjectContext = () => useContext(ProjectContext);
 
 export const ProjectProvider = ({ children }: { children: React.ReactNode }) => {

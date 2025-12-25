@@ -3,18 +3,8 @@ import { useAppSettings } from "../context/AppSettingsContext";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import type { ProjectProps } from "../types/types";
 
-type ProjectProps = {
-  slug: string;
-  title: string;
-  description: string;
-  techStack: string[];
-  tags: string[];
-  githubLink: string;
-  liveDemo: string;
-  screenshots: string[];
-  isLatest: boolean;
-};
 
 const ProjectCard = ({
   slug,
@@ -27,9 +17,9 @@ const ProjectCard = ({
   screenshots,
   isLatest,
 }: ProjectProps) => {
-  const navigate = useNavigate();
-  const { theme, borderRadius } = useAppSettings();
-  const [hovered, setHovered] = useState(false);
+  const navigate = useNavigate(); // for navigation.
+  const { theme, borderRadius } = useAppSettings(); // theme use ke liye.
+  const [hovered, setHovered] = useState(false); // hover pe project glow krne ke liye.
 
   return (
     <div
