@@ -121,7 +121,7 @@ const Hero = () => {
         <motion.img
           src={myImage}
           alt="rohan-profile"
-          className="w-[320px] shadow-md z-10"
+          className="w-[370px] shadow-md z-10 brightness-[80%] transform scale-x-[-1]"
         />
       </motion.div>
     </motion.div>
