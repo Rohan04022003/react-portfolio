@@ -15,6 +15,7 @@ const Contact = () => {
   const [result, setResult] = useState(""); // message send huaa ya nahi confirmation message.
   const [isSuccess, setIsSuccess] = useState(false); // message success huaa ya fail.
   const location = useLocation(); // for getting location.
+  const [isSending, setIsSending] = useState(false); // for sending animation
 
   const { register, handleSubmit, reset } = useForm(); // react hook form se liya hai.
 
@@ -27,11 +28,13 @@ const Contact = () => {
     onSuccess: () => {
       setIsSuccess(true);
       setResult("✅ Message sent successfully!");
+      setIsSending(false);
       reset();
       setTimeout(() => setResult(""), 5000);
     },
     onError: () => {
       setIsSuccess(false);
+      setIsSending(false);
       setResult("❌ Something went wrong. Please try again.");
     },
   });
@@ -156,6 +159,7 @@ const Contact = () => {
           <motion.button
             type="submit"
             {...buttonTap}
+            onClick={() => setIsSending(true)}
             className="px-4 py-2 text-100 font-medium transition cursor-pointer flex-center gap-2 hover-80"
             style={{
               background: theme,
@@ -163,7 +167,7 @@ const Contact = () => {
             }}
             variants={childVariant}
           >
-            <Send size={16} /> Send Message
+            <Send size={16} className={`${isSending ? "rotate-45" : "rotate-0"} duration-300`} /> {isSending ? "Sending..." : "Send Message"}
           </motion.button>
 
           {/* Result Message */}
