@@ -4,13 +4,20 @@
 @import "swiper/css/pagination";
 @import "swiper/css/effect-coverflow";
 
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   @apply bg-neutral-900 text-neutral-50;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+/* for scrollbar */
+
+body::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
 }
 
 /* blinking cursor  */
@@ -72,8 +79,8 @@ body {
   @apply bg-neutral-900;
 }
 
-.hover-80{
-    @apply hover:opacity-80
+.hover-80 {
+  @apply hover:opacity-80;
 }
 
 .bg-blur-lg {
@@ -87,13 +94,12 @@ body {
 }
 
 .navbar {
-  @apply flex items-center gap-2 p-2 bg-[#42424250]
+  @apply flex items-center gap-2 p-2 bg-[#42424250];
 }
 
 .navlinks {
   @apply flex items-center gap-1 text-[.9rem] px-4 py-2;
 }
-
 
 /* app settings component  */
 

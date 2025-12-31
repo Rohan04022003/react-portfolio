@@ -11,10 +11,18 @@ import Footer from "./components/Footer"
 import ScrollToTop from "./components/ScrollToTop"
 import Projects from "./pages/Project"
 import ChatBotUI from "./components/ChatbotUI"
+import { useEffect } from "react"
+import { hexToRgba } from "./theme/HexToRGB"
 
 const App = () => {
 
   const { font } = useAppSettings();
+  const { theme } = useAppSettings();
+
+  useEffect(() => {
+    document.body.style.setProperty("--scrollbar-thumb", hexToRgba(theme, 0.22));
+  }, [theme]);
+
 
 
   return (

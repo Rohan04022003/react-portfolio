@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { getGeminiResponse } from "../lib/geminiHandler";
 import { formatMarkdownMessage } from "../utils/formatBotMessage";
 import { TypingDots } from "./TypingDots";
+import { useScrollLock } from "../hooks/useScrollLock";
 
 const ChatBotUI = () => {
     const { theme } = useAppSettings(); // theme settings use krne ke liye.
@@ -21,6 +22,9 @@ const ChatBotUI = () => {
     const initialBotMessage = `Hi, I'm ${botName} 👋. I can guide you through everything about Rohan — his projects, skills, and journey.`;
 
     // quick message ke liye kuch prebuild question
+
+    // scroll lock ke liye.
+    useScrollLock(isOpen)
 
     const quickMessages = [
         "Who is Rohan Kumar Mahto?",
