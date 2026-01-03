@@ -1,7 +1,7 @@
 import { useLayoutEffect } from "react";
 
 const getScrollbarWidth = () => {
-    return window.innerWidth - document.documentElement.clientWidth;
+    return window.innerWidth - document.documentElement.clientWidth; // yaha pe scroll bar ka acutal width nikal rhe hai.
 };
 
 export const useScrollLock = (lock: boolean) => {

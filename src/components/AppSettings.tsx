@@ -27,19 +27,23 @@ const AppSettings = () => {
         },
     };
 
-    // Sidebar open / close animation
     const sidebarVariants = {
         hidden: {
             x: 500,
             opacity: 0,
+            transition: {
+                type: "spring" as const,
+                stiffness: 160,
+                damping: 25,
+            },
         },
         visible: {
             x: 0,
             opacity: 1,
             transition: {
                 type: "spring" as const,
-                stiffness: 300,
-                damping: 30,
+                stiffness: 160,   // slow open
+                damping: 25,
             },
         },
         exit: {
@@ -47,11 +51,12 @@ const AppSettings = () => {
             opacity: 0,
             transition: {
                 type: "spring" as const,
-                stiffness: 300,
-                damping: 35,
+                stiffness: 160,   // slow close
+                damping: 25,
             },
         },
     };
+
 
     // Content stagger 
     const contentParent = {
@@ -60,7 +65,7 @@ const AppSettings = () => {
             x: 0,
             transition: {
                 staggerChildren: 0.15,
-                duration: 0.3,
+                duration: 0.7,
             },
         },
     };
@@ -71,7 +76,7 @@ const AppSettings = () => {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.4,
+                duration: 0.7,
                 ease: [0.25, 0.1, 0.25, 1] as const,
             },
         },
