@@ -56,7 +56,7 @@ const Header = () => {
         <motion.button
           {...buttonTap}
         >
-          <Link to={"/contact"} style={{ border: `1px solid ${theme}`, borderRadius: borderRadius + 'px' }} className={`btn-default sm:flex hidden px-4 py-[.4rem] text-100 bg-neutral-900 hover-80`}>Hire Me</Link>
+          <Link to={"/contact"} style={{ border: `1px solid ${theme}`, borderRadius: borderRadius + 'px' }} className={`btn-default sm:flex hidden px-4 py-[.4rem] text-100 bg-transparent hover-80`}>Hire Me</Link>
         </motion.button>
         <AppSettings />
 

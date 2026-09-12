@@ -19,6 +19,16 @@ const App = () => {
   const { font } = useAppSettings();
   const { theme } = useAppSettings();
 
+  const dynamicBackground: { background: string } = {
+    background: `
+      radial-gradient(
+        circle at 50% 0%,
+        color-mix(in srgb, ${theme} 8%, transparent),
+        transparent 30%
+      )
+    `,
+  }
+
   useEffect(() => {
     document.body.style.setProperty("--scrollbar-thumb", hexToRgba(theme, 0.22));
   }, [theme]);
@@ -26,7 +36,7 @@ const App = () => {
 
 
   return (
-    <div style={{ fontFamily: font, }}>
+    <div style={{ fontFamily: font, ...dynamicBackground }}>
       <ScrollToTop />
       <Header />
       <Routes>

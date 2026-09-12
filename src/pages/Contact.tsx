@@ -40,7 +40,7 @@ const ContactPage = () => {
 
   return (
     <motion.section
-      className="min-h-screen px-4 md:px-10 lg:px-20 py-10 flex justify-center bg-900 text-white"
+      className="min-h-screen px-4 md:px-10 lg:px-20 py-10 flex justify-center text-white"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
