@@ -72,7 +72,7 @@ const ContactPage = () => {
           {contactDetails.map(({ label, value, link }) => (
             <motion.div
               key={label}
-              className="bg-800 p-4 rounded-lg border border-transparent hover:border-[var(--theme)] transition"
+              className="bg-800 p-4 rounded-lg"
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -82,6 +82,7 @@ const ContactPage = () => {
                 damping: 14,
                 ease: [0.25, 0.1, 0.25, 1]
               }}
+              style={{ border: `1px solid ${theme}20` }}
             >
               <p className="text-sm text-neutral-400">{label}</p>
               {link ? (
