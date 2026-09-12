@@ -1,5 +1,5 @@
 import { useAppSettings } from "../context/AppSettingsContext";
-import { Code2 } from "lucide-react";
+import { BriefcaseBusiness, Code2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const AboutIntro = () => {
@@ -7,82 +7,190 @@ const AboutIntro = () => {
 
   return (
     <motion.section
-      initial={{ opacity: 0, y: 40, scale: 0.95 }}
+      initial={{ opacity: 0, y: 40, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 1.2, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-      viewport={{ once: true, amount: 0.2 }}
-      className="bg-800 text-100 rounded-lg md:p-5 p-2 shadow-lg lg:w-[65rem] w-full"
+      transition={{
+        duration: 0.9,
+        delay: 0.2,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
+      viewport={{ once: true, amount: 0.15 }}
+      className="relative overflow-hidden bg-800 text-100 rounded-2xl
+        border border-white/5 shadow-xl lg:w-[65rem] w-full
+        md:p-7 p-4"
     >
-      <div className="flex-between flex-col gap-10">
-        {/* Introduction */}
-        <div className="flex-1 space-y-4">
-          <p className="text-lg leading-6 text-400">
+      {/* Subtle theme glow */}
+      <div
+        className="absolute -top-32 -right-32 w-72 h-72 rounded-full
+          blur-3xl opacity-[0.06] pointer-events-none"
+        style={{ backgroundColor: theme }}
+      />
+
+      <div className="relative z-10">
+
+        {/* Header */}
+        <div className="flex items-start justify-between gap-5 mb-7">
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <span
+                className="w-2 h-2 rounded-full"
+                style={{ backgroundColor: theme }}
+              />
+
+              <span className="text-sm text-400 uppercase tracking-[0.18em]">
+                About Me
+              </span>
+            </div>
+
+            <h2 className="text-2xl md:text-3xl font-semibold">
+              A developer who enjoys{" "}
+              <span style={{ color: theme }}>
+                building & solving.
+              </span>
+            </h2>
+          </div>
+
+          <div
+            className="hidden sm:flex items-center justify-center
+              w-11 h-11 rounded-xl border border-white/10
+              bg-white/[0.03]"
+          >
+            <Code2 className="w-5 h-5 text-neutral-400" />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="space-y-5">
+
+          <p className="text-[16px] md:text-lg leading-7 text-400">
             Hello! I’m{" "}
-            <span style={{ color: theme }} className="font-medium">
+            <span
+              style={{ color: theme }}
+              className="font-medium"
+            >
               Rohan Kumar Mahto
             </span>
-            , a frontend developer with a passion for crafting pixel-perfect,
-            responsive, and high-performing web interfaces. With a strong
-            foundation in{" "}
-            <span className="font-medium text-300">React.js</span>,{" "}
-            <span className="font-medium text-300">TypeScript</span>,{" "}
-            <span className="font-medium text-300">Tailwind CSS</span>, and
-            component libraries like{" "}
-            <span className="font-medium text-300">shadcn/ui</span>, I
-            specialize in building scalable UIs that not only look clean — but
-            work flawlessly across devices.
+            . I enjoy turning ideas and requirements into clean, responsive,
+            and intuitive digital experiences. I care about thoughtful UI,
+            usability, performance, and writing solutions that are practical
+            and maintainable.
           </p>
-          <p className="text-lg leading-6 text-400">
-            I enjoy transforming complex requirements into intuitive user
-            experiences. Whether it's an AI-powered chatbot builder, a custom
-            e-commerce platform, or a modern news application — I focus on
-            performance, accessibility, and maintainability in everything I
-            build.
+
+          <p className="text-[16px] md:text-lg leading-7 text-400">
+            I currently work at{" "}
+            <span
+              style={{ color: theme }}
+              className="font-medium"
+            >
+              Cognizant
+            </span>{" "}
+            in{" "}
+            <span className="font-medium text-300">
+              Azure Data Operations
+            </span>
+            . My professional experience includes working with data
+            operations and cloud-based environments, along with hands-on work
+            involving SQL, SSIS, Python, SaaS, and stored procedures.
           </p>
-          <p className="text-lg leading-6 text-400">
-            I'm also expanding into <span style={{ color: theme }} className="text-300">backend development.</span> Currently working on{" "}
-            <span className="font-medium text-300">Node.js</span>,{" "}
-            <span className="font-medium text-300">Express.js</span>,{" "}
-            <span className="font-medium text-300">MongoDB</span>,{" "}
-            <span className="font-medium text-300">Mongoose</span>,{" "}
-            <span className="font-medium text-300">REST APIs</span>,{" "}
-            <span className="font-medium text-300">Authentication</span>, and{" "}
-            <span className="font-medium text-300">Aggregation Pipelines</span>.
-            <span style={{ color: theme }} className="font-medium">Backend development is ongoing,</span> and I’m continuously improving
-            projects like <span className="font-medium text-300">VYN0X</span>.
+
+          <p className="text-[16px] md:text-lg leading-7 text-400">
+            Alongside my professional work, I build modern web applications
+            and explore full-stack development. I enjoy creating reusable
+            interfaces, connecting applications with APIs, and turning
+            complex requirements into simple user experiences.
           </p>
-          <p className="text-lg leading-6 text-400">
-            I'm a continuous learner who thrives on collaboration,
-            problem-solving, and keeping up with the latest full-stack trends.
-            Let’s create something impactful together.
+
+          <p className="text-[16px] md:text-lg leading-7 text-400">
+            One of my ongoing projects is{" "}
+            <span
+              style={{ color: theme }}
+              className="font-medium"
+            >
+              VYN0X
+            </span>
+            , where I’m exploring real-world application architecture and
+            full-stack development. I’m continuously improving my ability to
+            work across both data-driven systems and modern web applications.
           </p>
+
         </div>
 
-        <div className="flex-between w-full">
-          {/* Stats */}
-          <div className="flex gap-8 items-center justify-center md:justify-end">
-            <div>
-              <h2 className="text-2xl font-bold" style={{ color: theme }}>
-                3+
-              </h2>
-              <p className="text-sm text-400">Major Projects</p>
-            </div>
-            <div>
-              <h2
-                className="text-2xl font-bold flex items-center gap-2"
-                style={{ color: theme }}
+        {/* Experience Highlight */}
+        <div className="mt-8 pt-6 border-t border-white/5">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+            {/* Current Role */}
+            <div
+              className="group flex items-center gap-4 rounded-xl
+                border border-white/[0.07]
+                bg-white/[0.025] p-4
+                transition-all duration-300
+                hover:bg-white/[0.05]"
+            >
+              <div
+                className="flex items-center justify-center
+                  w-10 h-10 rounded-lg
+                  bg-white/[0.04] border border-white/[0.06]"
               >
-                Ongoing
-              </h2>
-              <p className="text-sm text-400">Backend Development</p>
-            </div>
-          </div>
+                <BriefcaseBusiness
+                  className="w-5 h-5"
+                  style={{ color: theme }}
+                />
+              </div>
 
-          {/* Icon */}
-          <div className="flex justify-end mt-4">
-            <Code2 className="w-6 h-6 text-neutral-500" />
+              <div>
+                <p className="text-sm text-500">
+                  Currently
+                </p>
+
+                <h3 className="font-medium text-300">
+                  Working at Cognizant
+                </h3>
+
+                <p className="text-xs text-500 mt-0.5">
+                  Azure Data Operations
+                </p>
+              </div>
+            </div>
+
+            {/* Development */}
+            <div
+              className="group flex items-center gap-4 rounded-xl
+                border border-white/[0.07]
+                bg-white/[0.025] p-4
+                transition-all duration-300
+                hover:bg-white/[0.05]"
+            >
+              <div
+                className="flex items-center justify-center
+                  w-10 h-10 rounded-lg
+                  bg-white/[0.04] border border-white/[0.06]"
+              >
+                <Code2
+                  className="w-5 h-5"
+                  style={{ color: theme }}
+                />
+              </div>
+
+              <div>
+                <p className="text-sm text-500">
+                  Outside Work
+                </p>
+
+                <h3 className="font-medium text-300">
+                  Building Web Applications
+                </h3>
+
+                <p className="text-xs text-500 mt-0.5">
+                  Exploring Full-Stack Development
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
+
       </div>
     </motion.section>
   );
