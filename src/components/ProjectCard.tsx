@@ -1,6 +1,5 @@
 import { ExternalLink, Github } from "lucide-react";
 import { useAppSettings } from "../context/AppSettingsContext";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import type { ProjectProps } from "../types/types";
@@ -19,24 +18,20 @@ const ProjectCard = ({
 }: ProjectProps) => {
   const navigate = useNavigate(); // for navigation.
   const { theme, borderRadius } = useAppSettings(); // theme use ke liye.
-  const [hovered, setHovered] = useState(false); // hover pe project glow krne ke liye.
 
   return (
     <div
-      className="bg-800 rounded-xl overflow-hidden shadow transition p-3 cursor-pointer relative"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      className="bg-800 rounded-xl overflow-hidden shadow transition p-3 cursor-pointer relative group"
       onClick={() => navigate(`/projects/${slug}`)}
       style={{
         border: `1px solid ${theme}40`,
-        boxShadow: hovered ? `0px 0px 10px ${theme}60` : "",
       }}
     >
       {/* Image */}
       <motion.img
         src={screenshots[0]}
         alt={title}
-        className="w-full h-48 object-cover rounded-lg"
+        className="w-full h-48 object-cover rounded-lg group relative"
         style={{ border: `1px solid ${theme}40` }}
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
@@ -160,6 +155,19 @@ const ProjectCard = ({
           </div>
         </motion.div>
       </div>
+
+      {/* Theme indicator */}
+      <span
+        className="
+                absolute bottom-0 left-0
+                h-0.5 w-0
+                group-hover:w-full
+                transition-all duration-500
+              "
+        style={{
+          backgroundColor: theme,
+        }}
+      />
     </div>
   );
 };
