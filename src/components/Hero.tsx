@@ -1,4 +1,4 @@
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import myImage from "../assets/rohan.png";
 import TypingKeywords from "../components/TypingKeywords";
 import { useAppSettings } from "../context/AppSettingsContext";
@@ -55,19 +55,41 @@ const Hero = () => {
           viewport={{ once: true }}
         >
           <div className="w-2 h-2 rounded-full bg-green-600 animate-pulse" />
-          <p className="text-sm text-400">Available for work</p>
+          <p className="text-sm text-400">Working at Cognizant</p>
         </motion.div>
 
         {/* Animated Heading */}
         <motion.div
-          className="text-4xl sm:text-5xl font-bold text-100 leading-tight"
+          className="text-4xl sm:text-5xl font-semibold text-100 md:leading-15 leading-10"
           variants={parentVariant}
         >
-          <motion.span className="block" variants={childVariant}>
-            Hi, I’m Rohan
+          <motion.span className="block text-lg tracking-wider" variants={childVariant}>
+            HI, I’M ROHAN
           </motion.span>
           <motion.span className="block" variants={childVariant}>
-            Building Fast, Clean & Modern UIs.
+            I build digital
+          </motion.span>
+          <motion.span className="block" variants={childVariant}>
+            <span style={{ color: theme }}>experiences</span> that
+          </motion.span>
+          <motion.span className="block" variants={childVariant}>
+            <span className="relative">make
+              <svg
+                className="absolute lg:top-10 sm:top-10 top-8 lg:-left-2"
+                width="140"
+                height="35"
+                viewBox="0 0 240 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 25C55 5 130 50 235 10"
+                  stroke={theme}
+                  strokeWidth="6"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span> an impact.
           </motion.span>
         </motion.div>
 
@@ -89,11 +111,10 @@ const Hero = () => {
               background: theme,
               borderRadius: borderRadius + "px",
             }}
-            href={"/rohanResume.pdf"}
-            download
-            className="text-100 lg:text-base text-sm px-5 py-2 shadow transition hover-80 flex-center gap-2"
+            href="#projects"
+            className="text-neutral-800 lg:text-base text-sm font-semibold px-4 py-2 shadow transition hover-80 flex-center gap-2"
           >
-            Download CV <ArrowDown size={18} className="animate-bounce" />
+            View My Work <ArrowRight size={18} />
           </motion.a>
           <motion.a
             {...buttonTap}
@@ -102,10 +123,12 @@ const Hero = () => {
               color: theme,
               borderRadius: borderRadius + "px",
             }}
-            href="#projects"
-            className="text-100 lg:text-base text-sm px-5 py-2 transition hover-80"
+
+            href={"/rohanResume.pdf"}
+            download
+            className="text-100 hover-80 text-100 lg:text-base text-sm px-4 py-2 shadow transition hover-80 flex-center gap-2"
           >
-            View Projects
+            Download CV <ArrowDown size={18} className="animate-bounce" />
           </motion.a>
         </motion.div>
       </motion.div>

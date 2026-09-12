@@ -24,7 +24,7 @@ const App = () => {
       radial-gradient(
         circle at 50% 0%,
         color-mix(in srgb, ${theme} 8%, transparent),
-        transparent 30%
+        transparent 50%
       )
     `,
   }
