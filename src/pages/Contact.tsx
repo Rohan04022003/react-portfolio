@@ -2,6 +2,7 @@ import { Map } from "lucide-react";
 import ContactForm from "../components/ContactForm";
 import { useAppSettings } from "../context/AppSettingsContext";
 import { motion } from "framer-motion";
+import SEO from "../components/SEO";
 
 const ContactPage = () => {
   const { theme } = useAppSettings();
@@ -39,6 +40,12 @@ const ContactPage = () => {
   ];
 
   return (
+    <>
+    <SEO
+  title="Contact Rohan Mahto | Developer Portfolio"
+  description="Connect with Rohan Mahto for software development opportunities, web development projects, and professional collaborations."
+  path="/contact"
+/>
     <motion.section
       className="min-h-screen px-4 md:px-10 lg:px-20 py-10 flex justify-center text-white"
       initial={{ opacity: 0, y: 20 }}
@@ -139,6 +146,7 @@ const ContactPage = () => {
         </div>
       </motion.div>
     </motion.section>
+    </>
   );
 };
 
