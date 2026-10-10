@@ -49,13 +49,20 @@ const About = () => {
             </p>
 
             <p className="text-400">
-              I currently work at Cognizant in Azure Data Operations, where I
-              work with data and cloud-related workflows. My professional
-              experience includes SQL, SSIS, Python, SaaS environments, and
-              stored procedures, giving me hands-on exposure to enterprise data
-              operations and production-oriented systems. Outside of work, I
-              build modern web applications and experiment with different ideas
-              to strengthen my development skills. You can reach out to me at{" "}
+              I currently work at{" "}
+              <span style={{ color: theme }}>
+                Cognizant
+              </span>{" "}
+              in Azure Data Operations, where I joined on{" "}
+              <span style={{ color: theme }}>
+                February 14, 2026
+              </span>
+              . I work with data and cloud-related workflows. My professional experience
+              includes SQL, SSIS, Python, SaaS environments, and stored procedures,
+              giving me hands-on exposure to enterprise data operations and
+              production-oriented systems. Outside of work, I build modern web
+              applications and experiment with different ideas to strengthen my
+              development skills. You can reach out to me at{" "}
               <a
                 className="underline hover-80"
                 style={{ color: theme }}

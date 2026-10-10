@@ -5,6 +5,32 @@ import { motion } from "framer-motion";
 const AboutIntro = () => {
   const { theme } = useAppSettings();
 
+
+  // joining date calculation.
+
+  const joiningDate = new Date("2026-02-14");
+  const currentDate = new Date();
+
+  let years = currentDate.getFullYear() - joiningDate.getFullYear();
+  let months = currentDate.getMonth() - joiningDate.getMonth();
+
+  if (currentDate.getDate() < joiningDate.getDate()) {
+    months--;
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  const experienceText = [
+    years > 0 ? `${years} ${years === 1 ? "year" : "years"}` : "",
+    months > 0 ? `${months} ${months === 1 ? "month" : "months"}` : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 40, scale: 0.97 }}
@@ -120,39 +146,59 @@ const AboutIntro = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
 
-            {/* Current Role */}
-            <div
-              className="group flex items-center gap-4 rounded-xl
-                border border-white/[0.07]
-                bg-white/[0.025] p-4
-                transition-all duration-300
-                hover:bg-white/[0.05]"
-            >
-              <div
-                className="flex items-center justify-center
-                  w-10 h-10 rounded-lg
-                  bg-white/[0.04] border border-white/[0.06]"
-              >
-                <BriefcaseBusiness
-                  className="w-5 h-5"
-                  style={{ color: theme }}
-                />
-              </div>
+{/* Current Role */}
+<div
+  className="group rounded-xl border border-white/[0.08] bg-white/[0.02]
+    p-4 transition-colors duration-300 hover:bg-white/[0.04]"
+>
+  <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
-              <div>
-                <p className="text-sm text-500">
-                  Currently
-                </p>
+    {/* Left: Role Details */}
+    <div className="flex items-center gap-3">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center
+        rounded-lg border border-white/[0.07] bg-white/[0.03]"
+      >
+        <BriefcaseBusiness
+          className="h-[18px] w-[18px]"
+          style={{ color: theme }}
+        />
+      </div>
 
-                <h3 className="font-medium text-300">
-                  Working at Cognizant
-                </h3>
+      <div>
+        <p className="text-xs text-500">
+          Currently working at
+        </p>
 
-                <p className="text-xs text-500 mt-0.5">
-                  Azure Data Operations
-                </p>
-              </div>
-            </div>
+        <h3 className="mt-1 text-sm font-medium text-300">
+          Cognizant
+        </h3>
+
+        <p className="mt-0.5 text-xs text-500">
+          Azure Data Operations
+        </p>
+      </div>
+    </div>
+
+    {/* Right on desktop, bottom on mobile */}
+    <div
+      className="flex items-center justify-between border-t
+        border-white/[0.07] pt-3
+        sm:block sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0 sm:text-right"
+    >
+      <p className="text-xs text-500">
+        Professional Experience
+      </p>
+
+      <p
+        className="text-sm font-semibold"
+        style={{ color: theme }}
+      >
+        {experienceText || "< 1 month"}
+      </p>
+    </div>
+
+  </div>
+</div>
 
             {/* Development */}
             <div
